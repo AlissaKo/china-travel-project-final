@@ -35,7 +35,9 @@ export default function TourModal({ tour, onClose, onContact }) {
           {photos.map((src, i) => (
             <img
               key={src}
-              src={src}
+              src={encodeURI(
+                `${import.meta.env.BASE_URL}${src.replace(/^\/+/, "")}`,
+              )}
               alt={tour.title}
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
                 i === index ? "opacity-100" : "opacity-0"

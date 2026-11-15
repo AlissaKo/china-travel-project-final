@@ -237,7 +237,9 @@ export default function Home({ onNavigate, onDetails }) {
                             {(t.image || t.images?.[0]) && (
                               <div className="relative h-40 w-full shrink-0 overflow-hidden sm:h-auto sm:w-56">
                                 <img
-                                  src={t.image ?? t.images[0]}
+                                  src={encodeURI(
+                                    `${import.meta.env.BASE_URL}${(t.image ?? t.images[0]).replace(/^\/+/, "")}`,
+                                  )}
                                   alt={t.title}
                                   className="h-full w-full object-cover"
                                 />

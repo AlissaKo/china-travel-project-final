@@ -71,7 +71,9 @@ export default function TourCard({ tour, onDetails }) {
         {images.map((src, i) => (
           <img
             key={src}
-            src={src}
+            src={encodeURI(
+              `${import.meta.env.BASE_URL}${src.replace(/^\/+/, "")}`,
+            )}
             alt={tour.title}
             onError={() => handleError(src)}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
