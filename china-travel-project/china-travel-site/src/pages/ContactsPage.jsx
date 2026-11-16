@@ -1,4 +1,11 @@
-import { Phone, Mail, Clock, MapPin, MessageCircle, Send } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  Clock,
+  MapPin,
+  MessageCircleMore,
+  Send,
+} from "lucide-react";
 import Breadcrumbs from "../components/Breadcrumbs.jsx";
 
 export default function ContactsPage({ onNavigate }) {
@@ -12,18 +19,18 @@ export default function ContactsPage({ onNavigate }) {
       hint: "Звонки в рабочее время",
     },
     {
-      icon: MessageCircle,
+      icon: Send,
       label: "Telegram",
-      value: "@chinatravel",
-      href: "https://t.me/chinatravel",
-      hint: "Обычно отвечаем быстрее всего",
+      value: "@chinatravel.example",
+      href: "https://t.me/chinatravel.example",
+      hint: "Отвечаем в течение 5 минут",
     },
     {
-      icon: Send,
+      icon: MessageCircleMore,
       label: "WhatsApp",
       value: "+7 (999) 000-00-00",
       href: "https://wa.me/79990000000",
-      hint: "Удобно, если пишете с телефона",
+      hint: "Быстрый ответ в мессенджере",
     },
     {
       icon: Mail,
@@ -50,8 +57,8 @@ export default function ContactsPage({ onNavigate }) {
         <p className="eyebrow mb-3">МЫ НА СВЯЗИ</p>
         <h1 className="mb-10 text-4xl font-black">Давайте планировать Китай</h1>
         <p className="mb-10 max-w-2xl text-sm leading-6 text-slate-300">
-          Расскажите, о каком путешествии мечтаете — по телефону, в мессенджере
-          или по почте. Подскажем, с чего начать, и поможем сориентироваться.
+          Расскажите о путешествии своей мечты по телефону, в мессенджере или по
+          почте. Подскажем, с чего начать, и поможем сориентироваться.
         </p>
 
         {/* Основные каналы связи — 2×2 */}
@@ -85,9 +92,6 @@ export default function ContactsPage({ onNavigate }) {
             <div>
               <p className="text-xs text-slate-500">Время работы</p>
               <p className="mt-1 text-base font-semibold">Пн–Пт, 10:00–19:00</p>
-              <p className="mt-1 text-xs text-slate-300">
-                В мессенджерах отвечаем и в выходные — как получится.
-              </p>
             </div>
           </div>
           <div className="glass-card flex items-start gap-4 rounded-xl p-5 md:p-6">
@@ -100,7 +104,7 @@ export default function ContactsPage({ onNavigate }) {
                 Онлайн-консультации по записи
               </p>
               <p className="mt-1 text-xs text-slate-300">
-                Сначала короткий созвон — потом подробный план в переписке.
+                Сначала короткий созвон, потом подробный план в переписке.
               </p>
             </div>
           </div>

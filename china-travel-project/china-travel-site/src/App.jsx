@@ -55,10 +55,10 @@ export default function App() {
           }}
         />
 
-        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-black/15 sm:bg-black/25" />
 
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 opacity-70 sm:opacity-100"
           style={{
             background:
               "radial-gradient(ellipse 60% 55% at 50% 42%, rgba(5,14,18,0.45) 0%, rgba(5,14,18,0.20) 55%, rgba(5,14,18,0) 80%)",

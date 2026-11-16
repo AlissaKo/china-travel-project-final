@@ -40,9 +40,9 @@ export default function TourPage({ tour, onBack, onContact, onNavigate }) {
       <main className="container-shell pb-8 md:pb-12">
         <button
           onClick={onBack}
-          className="mb-6 inline-flex items-center gap-2 text-xs font-semibold text-slate-300 transition hover:text-white"
+          className="mb-6 inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 transition hover:text-white"
         >
-          <ArrowLeft size={14} /> Все туры
+          <ArrowLeft size={14} className="shrink-0 translate-y-px" /> Все туры
         </button>
 
         <div className="glass-card relative flex flex-col overflow-hidden rounded-2xl border border-white/10 lg:min-h-[500px] lg:flex-row">
@@ -217,11 +217,11 @@ export default function TourPage({ tour, onBack, onContact, onNavigate }) {
           <div className="mt-12 border-t border-white/10 pt-8">
             <button
               onClick={onContact}
-              className="btn-primary group inline-flex items-center gap-2"
+              className="btn-primary group inline-flex items-center gap-1.5"
             >
-              Обсудить поездку
+              Обсудить поездку{" "}
               <ArrowRight
-                size={13}
+                size={14}
                 strokeWidth={2.5}
                 className="shrink-0 translate-y-px transition-transform duration-200 ease-out group-hover:translate-x-0.5"
               />

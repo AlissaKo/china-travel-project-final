@@ -6,10 +6,39 @@ import {
   Headphones,
   ShieldCheck,
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Star,
 } from "lucide-react";
+import { useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs.jsx";
 
+const reviews = [
+  [
+    "Анна и Михаил",
+    "«Очень понравилась организация: увидели древний Пекин и современный Шанхай, но не чувствовали постоянной спешки. Китай оказался гораздо ближе, чем мы ожидали!»",
+    "Классика Китая",
+  ],
+  [
+    "Екатерина",
+    "«Природа Чжанцзяцзе — просто невероятная. Нам помогли продумать дни так, чтобы были и прогулки, и время спокойно насладиться видами».",
+    "Природные чудеса",
+  ],
+  [
+    "Ирина с семьёй",
+    "«Путешествие с ребёнком оказалось намного спокойнее, чем мы думали. Переезды были понятными, а Диснейленд стал главным воспоминанием».",
+    "Семейный Китай",
+  ],
+  [
+    "Дмитрий",
+    "«Хотелось чего-то не как у всех — и поездка по Шёлковому пути стала настоящим приключением. Очень много историй и впечатлений».",
+    "Шёлковый путь",
+  ],
+];
+
 export default function AboutPage({ onNavigate }) {
+  const [reviewIndex, setReviewIndex] = useState(0);
+
   // 4 карточки = одновременно «чем помогаем» и «как работаем» (шаги вплетены)
   const services = [
     {
@@ -121,6 +150,57 @@ export default function AboutPage({ onNavigate }) {
           </div>
         </section>
 
+        {/* ── ОТЗЫВЫ ───────────────────────────────────── */}
+        <section className="mt-16 md:mt-24">
+          <div className="mb-8 max-w-2xl">
+            <p className="eyebrow mb-2">ОТЗЫВЫ ПУТЕШЕСТВЕННИКОВ</p>
+            <h2 className="text-2xl font-extrabold md:text-3xl">
+              Истории, которые остаются
+            </h2>
+          </div>
+
+          <div className="relative grid">
+            {reviews.map(([name, quote, tour], index) => (
+              <article
+                key={name}
+                aria-hidden={index !== reviewIndex}
+                className={`glass-card col-start-1 row-start-1 mx-12 flex flex-col rounded-xl p-6 sm:mx-14 ${
+                  index === reviewIndex ? "" : "invisible"
+                }`}
+              >
+                <div className="mb-3 flex gap-1 text-sand">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} size={13} fill="currentColor" />
+                  ))}
+                </div>
+                <p className="flex-1 text-sm leading-6 text-slate-300">
+                  {quote}
+                </p>
+                <div className="mt-4 text-sm font-bold">{name}</div>
+                <div className="mt-1 text-xs text-slate-500">Тур: {tour}</div>
+              </article>
+            ))}
+
+            <button
+              type="button"
+              aria-label="Предыдущий отзыв"
+              onClick={() => setReviewIndex((i) => (i - 1 + 4) % 4)}
+              className="btn-secondary absolute left-0 top-1/2 -translate-y-1/2"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            <button
+              type="button"
+              aria-label="Следующий отзыв"
+              onClick={() => setReviewIndex((i) => (i + 1) % 4)}
+              className="btn-secondary absolute right-0 top-1/2 -translate-y-1/2"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </section>
+
         {/* ── CTA ──────────────────────────────────────── */}
         <section className="mt-16 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-coral/10 via-white/[0.03] to-transparent p-8 md:mt-24 md:p-12">
           <div className="grid items-center gap-8 md:grid-cols-[1fr_auto]">
@@ -138,9 +218,10 @@ export default function AboutPage({ onNavigate }) {
               <button
                 type="button"
                 onClick={() => onNavigate("tours")}
-                className="btn-primary inline-flex items-center justify-center gap-2"
+                className="btn-primary inline-flex items-center justify-center gap-1.5"
               >
-                Подобрать тур <ArrowRight size={16} />
+                Подобрать тур{" "}
+                <ArrowRight size={14} className="shrink-0 translate-y-px" />
               </button>
               <button
                 type="button"

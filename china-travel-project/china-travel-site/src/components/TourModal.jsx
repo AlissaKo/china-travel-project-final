@@ -134,11 +134,11 @@ export default function TourModal({ tour, onClose, onContact }) {
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => onContact()}
-              className="btn-primary group inline-flex items-center gap-2"
+              className="btn-primary group inline-flex items-center gap-1.5"
             >
-              Обсудить поездку
+              Обсудить поездку{" "}
               <ArrowRight
-                size={13}
+                size={14}
                 strokeWidth={2.5}
                 className="shrink-0 translate-y-px transition-transform duration-200 ease-out group-hover:translate-x-0.5"
               />

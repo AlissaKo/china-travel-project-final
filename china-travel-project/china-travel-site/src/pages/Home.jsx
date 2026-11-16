@@ -310,9 +310,13 @@ export default function Home({ onNavigate, onDetails }) {
                   <button
                     onClick={() => setActiveQuestion((n) => Math.max(0, n - 1))}
                     disabled={activeQuestion === 0}
-                    className="btn-secondary inline-flex items-center gap-1 disabled:opacity-30"
+                    className="btn-secondary inline-flex items-center gap-1.5 disabled:opacity-30"
                   >
-                    <ChevronLeft size={15} /> Назад
+                    <ChevronLeft
+                      size={14}
+                      className="shrink-0 translate-y-px"
+                    />{" "}
+                    Назад
                   </button>
                   {activeQuestion < 4 ? (
                     <button
@@ -322,17 +326,25 @@ export default function Home({ onNavigate, onDetails }) {
                       disabled={
                         answers[questions[activeQuestion].key] === undefined
                       }
-                      className="btn-primary disabled:opacity-40"
+                      className="btn-primary inline-flex items-center gap-1.5 disabled:opacity-40"
                     >
-                      Далее <ChevronRight size={15} />
+                      Далее{" "}
+                      <ChevronRight
+                        size={14}
+                        className="shrink-0 translate-y-px"
+                      />
                     </button>
                   ) : (
                     <button
                       onClick={calculate}
                       disabled={completed !== 5}
-                      className="btn-primary disabled:opacity-40"
+                      className="btn-primary inline-flex items-center gap-1.5 disabled:opacity-40"
                     >
-                      Узнать результат <ArrowRight size={15} />
+                      Узнать результат{" "}
+                      <ArrowRight
+                        size={14}
+                        className="shrink-0 translate-y-px"
+                      />
                     </button>
                   )}
                 </div>
@@ -378,7 +390,7 @@ export default function Home({ onNavigate, onDetails }) {
                 <article
                   key={name}
                   aria-hidden={index !== reviewIndex}
-                  className={`glass-card col-start-1 row-start-1 mx-12 rounded-xl p-6 sm:mx-14 ${
+                  className={`glass-card col-start-1 row-start-1 mx-12 flex flex-col rounded-xl p-6 sm:mx-14 ${
                     index === reviewIndex ? "" : "invisible"
                   }`}
                 >
@@ -387,7 +399,9 @@ export default function Home({ onNavigate, onDetails }) {
                       <Star key={i} size={13} fill="currentColor" />
                     ))}
                   </div>
-                  <p className="text-sm leading-6 text-slate-300">{quote}</p>
+                  <p className="flex-1 text-sm leading-6 text-slate-300">
+                    {quote}
+                  </p>
                   <div className="mt-4 text-sm font-bold">{name}</div>
                   <div className="mt-1 text-xs text-slate-500">Тур: {tour}</div>
                 </article>

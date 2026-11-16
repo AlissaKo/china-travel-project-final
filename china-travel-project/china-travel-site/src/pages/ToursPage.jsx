@@ -82,9 +82,10 @@ export default function ToursPage({ onDetails, onNavigate }) {
           </div>
           <button
             onClick={() => onNavigate("home", "quiz")}
-            className="btn-primary mt-4 inline-flex items-center gap-2 sm:mt-0"
+            className="btn-primary mt-4 inline-flex items-center gap-1.5 sm:mt-0"
           >
-            Подобрать тур <ArrowRight size={14} />
+            Подобрать тур{" "}
+            <ArrowRight size={14} className="shrink-0 translate-y-px" />
           </button>
         </div>
       </main>
