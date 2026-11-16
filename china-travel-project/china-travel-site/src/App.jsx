@@ -48,7 +48,7 @@ export default function App() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/background13.png')",
+            backgroundImage: "url('/images/background13.jfif')",
             backgroundPosition: "top center",
             backgroundSize: "100% auto",
             backgroundRepeat: "no-repeat",

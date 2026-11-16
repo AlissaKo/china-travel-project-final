@@ -183,7 +183,7 @@ export default function Home({ onNavigate, onDetails }) {
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 top-0 h-[320px] bg-cover bg-center [mask-image:linear-gradient(to_bottom,black_45%,transparent_100%)] lg:inset-y-0 lg:right-auto lg:h-full lg:w-[49%] lg:[mask-image:linear-gradient(to_right,black_50%,transparent_92%)]"
-              style={{ backgroundImage: "url('/images/map.png')" }}
+              style={{ backgroundImage: "url('/images/map.jfif')" }}
             />
 
             <div className="relative z-10 flex min-h-[280px] items-end p-7 lg:min-h-0">
