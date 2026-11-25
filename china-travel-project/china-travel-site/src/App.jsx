@@ -40,10 +40,10 @@ export default function App() {
   }
 
   return (
-    <div className="relative isolate min-h-screen overflow-clip bg-ink">
+    <div className="relative isolate flex min-h-screen flex-col bg-ink">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0"
+        className="pointer-events-none absolute inset-0 z-0 overflow-clip"
       >
         <div
           className="absolute inset-0"
@@ -74,27 +74,31 @@ export default function App() {
         />
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-1 flex-col">
         <Header page={page} onNavigate={navigate} />
 
-        {page === "home" && <Home onNavigate={navigate} onDetails={openTour} />}
+        <main className="flex flex-1 flex-col">
+          {page === "home" && (
+            <Home onNavigate={navigate} onDetails={openTour} />
+          )}
 
-        {page === "tours" && (
-          <ToursPage onDetails={openTour} onNavigate={navigate} />
-        )}
+          {page === "tours" && (
+            <ToursPage onDetails={openTour} onNavigate={navigate} />
+          )}
 
-        {page === "about" && <AboutPage onNavigate={navigate} />}
+          {page === "about" && <AboutPage onNavigate={navigate} />}
 
-        {page === "contacts" && <ContactsPage onNavigate={navigate} />}
+          {page === "contacts" && <ContactsPage onNavigate={navigate} />}
 
-        {page === "tour" && selectedTour && (
-          <TourPage
-            tour={selectedTour}
-            onBack={() => navigate("tours")}
-            onNavigate={navigate}
-            onContact={() => navigate("contacts")}
-          />
-        )}
+          {page === "tour" && selectedTour && (
+            <TourPage
+              tour={selectedTour}
+              onBack={() => navigate("tours")}
+              onNavigate={navigate}
+              onContact={() => navigate("contacts")}
+            />
+          )}
+        </main>
 
         <Footer onNavigate={navigate} />
       </div>

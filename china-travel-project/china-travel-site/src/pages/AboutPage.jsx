@@ -39,7 +39,6 @@ const reviews = [
 export default function AboutPage({ onNavigate }) {
   const [reviewIndex, setReviewIndex] = useState(0);
 
-  // 4 карточки = одновременно «чем помогаем» и «как работаем» (шаги вплетены)
   const services = [
     {
       num: "01",
@@ -69,7 +68,6 @@ export default function AboutPage({ onNavigate }) {
 
   return (
     <>
-      {/* ── Крошки — сверху, сразу под шапкой ────────── */}
       <div className="container-shell pt-6">
         <Breadcrumbs
           items={[{ label: "Главная", page: "home" }, { label: "О нас" }]}
@@ -77,11 +75,8 @@ export default function AboutPage({ onNavigate }) {
         />
       </div>
 
-      {/* ── Основной контент ─────────────────────────── */}
       <main className="container-shell pb-12 md:pb-16">
-        {/* ── HERO ─────────────────────────────────────── */}
         <section className="relative overflow-hidden rounded-2xl border border-white/10">
-          {/* Слой затемнения — здесь настраивается прозрачность (opacity-60) */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#0f3340] via-[#09232a] to-[#05161a] opacity-60" />
           <div className="relative flex min-h-[560px] flex-col justify-between gap-12 p-6 sm:p-10 md:p-14">
             <div>
@@ -120,7 +115,6 @@ export default function AboutPage({ onNavigate }) {
           </div>
         </section>
 
-        {/* ── ЧЕМ МЫ ПОМОГАЕМ (= шаги процесса) ────────── */}
         <section className="mt-16 md:mt-24">
           <div className="mb-8 flex items-end justify-between gap-6">
             <div>
@@ -150,7 +144,6 @@ export default function AboutPage({ onNavigate }) {
           </div>
         </section>
 
-        {/* ── ОТЗЫВЫ ───────────────────────────────────── */}
         <section className="mt-16 md:mt-24">
           <div className="mb-8 max-w-2xl">
             <p className="eyebrow mb-2">ОТЗЫВЫ ПУТЕШЕСТВЕННИКОВ</p>
@@ -201,7 +194,6 @@ export default function AboutPage({ onNavigate }) {
           </div>
         </section>
 
-        {/* ── CTA ──────────────────────────────────────── */}
         <section className="mt-16 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-coral/10 via-white/[0.03] to-transparent p-8 md:mt-24 md:p-12">
           <div className="grid items-center gap-8 md:grid-cols-[1fr_auto]">
             <div>
